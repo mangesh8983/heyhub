@@ -1,0 +1,81 @@
+-- MySQL dump 10.13  Distrib 8.0.13, for macos10.14 (x86_64)
+--
+-- Host: 127.0.0.1    Database: heyhub
+-- ------------------------------------------------------
+-- Server version	5.7.23
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `user_chat`
+--
+
+DROP TABLE IF EXISTS `user_chat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `user_chat` (
+  `chat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `message` text,
+  `sent_on` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`chat_id`),
+  UNIQUE KEY `chat_id_UNIQUE` (`chat_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `user_chat_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_chat`
+--
+
+LOCK TABLES `user_chat` WRITE;
+/*!40000 ALTER TABLE `user_chat` DISABLE KEYS */;
+INSERT INTO `user_chat` VALUES (1,1,'Mangesh','2021-04-09 23:35:45'),(2,1,'Mangesh','2021-04-09 23:37:45'),(3,1,'Mangesh','2021-04-09 23:38:00'),(4,1,'hello','2021-04-10 00:18:30'),(5,2,'Hello','2021-04-10 00:24:13'),(6,1,'hello','2021-04-10 00:30:35'),(7,1,'hi','2021-04-10 00:31:42'),(8,2,'hello','2021-04-10 00:31:55'),(9,1,'Hell','2021-04-10 00:33:53'),(10,2,'hi','2021-04-10 00:34:03'),(11,NULL,NULL,'2021-04-10 00:35:25'),(12,2,'hello','2021-04-10 00:35:31'),(13,NULL,NULL,'2021-04-10 00:37:35'),(14,2,'Hello','2021-04-10 00:37:41'),(15,1,'hello','2021-04-10 00:44:11'),(16,NULL,NULL,'2021-04-10 00:44:57'),(17,1,'hi','2021-04-10 00:45:00'),(18,1,'hello','2021-04-10 00:45:49'),(19,2,'Hi','2021-04-10 00:46:03'),(20,NULL,NULL,'2021-04-10 00:46:27'),(21,NULL,NULL,'2021-04-10 00:46:41'),(22,2,'hi','2021-04-10 00:46:46'),(23,1,'hi','2021-04-10 00:47:11'),(24,NULL,NULL,'2021-04-10 00:48:40'),(25,2,'hello','2021-04-10 00:48:46'),(26,NULL,NULL,'2021-04-10 00:48:58'),(27,1,'hello','2021-04-10 00:49:06'),(28,2,'how are you','2021-04-10 00:49:19'),(29,1,'im fine','2021-04-10 00:49:29'),(30,2,'','2021-04-10 00:50:53'),(31,NULL,NULL,'2021-04-10 00:51:38'),(32,2,'hello','2021-04-10 00:51:42'),(33,NULL,NULL,'2021-04-10 00:59:29'),(34,NULL,NULL,'2021-04-10 01:15:35'),(35,NULL,NULL,'2021-04-10 01:17:41'),(36,NULL,NULL,'2021-04-10 01:18:11'),(37,NULL,NULL,'2021-04-10 01:18:21'),(38,NULL,NULL,'2021-04-10 01:19:07'),(39,NULL,NULL,'2021-04-10 01:19:52'),(40,NULL,NULL,'2021-04-10 01:20:13'),(41,NULL,NULL,'2021-04-10 01:21:14'),(42,NULL,NULL,'2021-04-10 01:27:52'),(43,NULL,NULL,'2021-04-10 01:28:54'),(44,1,NULL,'2021-04-10 05:05:58'),(45,1,'good morning','2021-04-10 05:07:40');
+/*!40000 ALTER TABLE `user_chat` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) DEFAULT NULL,
+  `created_on` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Mangesh','2021-04-09 20:07:02'),(2,'Amit','2021-04-09 22:02:02'),(3,NULL,'2021-04-10 02:52:34'),(4,NULL,'2021-04-10 02:52:50'),(5,NULL,'2021-04-10 02:53:21'),(6,NULL,'2021-04-10 02:56:38'),(7,'Mangesh','2021-04-10 03:01:07'),(8,NULL,'2021-04-10 03:01:07'),(9,NULL,'2021-04-10 03:02:00'),(10,NULL,'2021-04-10 03:02:14'),(11,NULL,'2021-04-10 03:02:35'),(12,NULL,'2021-04-10 03:14:01');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-04-10 11:20:26
